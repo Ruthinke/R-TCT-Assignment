@@ -1,6 +1,5 @@
 package com.ruthloeser.android.tctassignment.networking
 
-import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import okhttp3.logging.HttpLoggingInterceptor

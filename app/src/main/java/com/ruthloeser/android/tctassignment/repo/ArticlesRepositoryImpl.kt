@@ -8,7 +8,7 @@ import com.ruthloeser.android.tctassignment.model.Result
 import java.io.File
 import java.io.IOException
 
-class ArticlesRepositoryImpl() : ArticlesRepository {
+class ArticlesRepositoryImpl : ArticlesRepository {
 
     private val remoteApi = App.remoteApi
 

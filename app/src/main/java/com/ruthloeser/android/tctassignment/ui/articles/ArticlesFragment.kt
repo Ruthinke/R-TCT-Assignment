@@ -1,5 +1,7 @@
 package com.ruthloeser.android.tctassignment.ui.articles
 
+import android.content.Context
+import android.graphics.Rect
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.ruthloeser.android.tctassignment.R
 import com.ruthloeser.android.tctassignment.model.Failure
 import com.ruthloeser.android.tctassignment.model.Success
@@ -36,6 +39,19 @@ class ArticlesFragment : Fragment() {
         progress.visibility = View.VISIBLE
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
+        recyclerView.addItemDecoration( object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(
+                outRect: Rect,
+                view: View,
+                parent: RecyclerView,
+                state: RecyclerView.State,
+            ) {
+                super.getItemOffsets(outRect, view, parent, state)
+                outRect.bottom = activity?.dpToPx(16)?:16
+            }
+        }
+
+        )
 
         viewModel.allArticles.observe(viewLifecycleOwner, { result ->
             progress.visibility = View.GONE
@@ -54,6 +70,14 @@ class ArticlesFragment : Fragment() {
     override fun onDestroy() {
         GlobalScope.launch(Dispatchers.IO) { viewModel.clear() }
         super.onDestroy()
+    }
+
+    fun Context.dpToPx(dp: Int): Int {
+        return (dp * resources.displayMetrics.density).toInt()
+    }
+
+    fun Context.pxToDp(px: Int): Int {
+        return (px / resources.displayMetrics.density).toInt()
     }
 
 }
