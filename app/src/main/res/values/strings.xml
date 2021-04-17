@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TCT Assignment</string>
+    <string name="article_picture_description">article picture</string>
+    <string name="save_button_description">save button image</string>
+    <string name="like_button_description">like button</string>
+    <string name="author_avatar_description">author avatar image</string>
+    <string name="connectivity_issue">problem connecting to the internet</string>
+    <string name="article_date_format">dd MMM, y</string>
+</resources>
