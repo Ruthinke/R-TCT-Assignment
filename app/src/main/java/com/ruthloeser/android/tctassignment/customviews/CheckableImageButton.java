@@ -1,4 +1,5 @@
-package com.ruthloeser.android.tctassignment.customviews;/*
+package com.ruthloeser.android.tctassignment.customviews;
+/*
  * The MIT License (MIT)
  *
  * Copyright (c) 2015 Alex Fu
